@@ -25,6 +25,8 @@ namespace HeCon_webapp.Models
         {
         }
 
+        public DbSet <UploadImage> UploadImages { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
