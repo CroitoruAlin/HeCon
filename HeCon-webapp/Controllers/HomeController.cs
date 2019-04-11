@@ -12,9 +12,6 @@ namespace HeCon_webapp.Controllers
 
         public ActionResult Index()
         {
-            PythonCaller pythonCaller = PythonCaller.getPythonCaller();
-            string result = pythonCaller.callPython("../HeCon-ml/image.jpeg");
-            ViewBag.result = result;
             return View();
         }
 

@@ -7,10 +7,10 @@
 <h2>New</h2>
 
 
-@using (Html.BeginForm("New", "UploadImage", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+@using (Html.BeginForm("New", "UploadImage", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>UploadImage</h4>
         <hr />
@@ -35,6 +35,12 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+    </div>
+    <div class="col-md-10">
+       @if(ViewBag.result != null)
+       {
+           <p>The probability of having pneumonia is: @ViewBag.result[1]</p>
+       }
     </div>
 }
 

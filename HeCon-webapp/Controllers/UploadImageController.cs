@@ -11,6 +11,7 @@ namespace HeCon_webapp.Controllers
     public class UploadImageController : Controller
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
+        private PythonCaller pythonCaller = PythonCaller.getPythonCaller();
 
         // GET: Image
         [HttpGet]
@@ -31,12 +32,11 @@ namespace HeCon_webapp.Controllers
             imageModel.ImagePath = "~/UploadedImages/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/UploadedImages/"), fileName);
             imageModel.ImageFile.SaveAs(fileName);
-
             db.UploadImages.Add(imageModel);
             db.SaveChanges();
-
+            string[] result = pythonCaller.callPython(fileName);
             ModelState.Clear();
-
+            ViewBag.result = result;
             return View();
         }
     }
