@@ -156,7 +156,9 @@ namespace HeCon_webapp.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    UserManager.AddToRole(user.Id, "User"); // CA AUTOMAT LA INREGISTRARE SA I SE ATRIBUIE ROLUL DE USER
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
