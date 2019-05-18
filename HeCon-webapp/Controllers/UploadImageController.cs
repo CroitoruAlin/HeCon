@@ -34,7 +34,7 @@ namespace HeCon_webapp.Controllers
             imageModel.ImageFile.SaveAs(fileName);
             db.UploadImages.Add(imageModel);
             db.SaveChanges();
-            string[] result = pythonCaller.callPython(fileName);
+            Prediction result = pythonCaller.callPython(fileName);
             ModelState.Clear();
             ViewBag.result = result;
             return View();

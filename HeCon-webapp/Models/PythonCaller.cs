@@ -1,5 +1,6 @@
 ﻿using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,29 +22,21 @@ namespace HeCon_webapp.Models
 
         }
 
-        public string[] callPython(string imagePath)
+        public Prediction callPython(string imagePath)
         {
+            string url = "http://127.0.0.1:5000/";
 
-            ProcessStartInfo start = new ProcessStartInfo();
-            start.FileName = "C:/Users/Alin/Anaconda3/envs/tensorflow/python.exe";
-            start.Arguments = string.Format("\"{0}\" \"{1}\"", "F:\\IP\\HeCon-ml\\script.py", imagePath);
-            start.UseShellExecute = false;
-            start.CreateNoWindow = true;
-            start.WorkingDirectory = "F:\\IP\\HeCon-ml\\";
-            start.RedirectStandardOutput = true;
-            start.RedirectStandardError = true;
-            char[] trimChars = { '[', ']','\r','\n' };
-            using (Process process = Process.Start(start))
-            {
-                using (StreamReader reader = process.StandardOutput)
-                {
-                    string stderr = process.StandardError.ReadToEnd(); 
-                    string result = reader.ReadToEnd();
-                    result = result.TrimStart(trimChars);
-                    result = result.TrimEnd(trimChars);
-                    return result.Split(' ');
-                }
-            }
+            var client = new RestClient(url);
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-type", "application/json");
+            request.RequestFormat = DataFormat.Json;
+            RequestObject requestObject = new RequestObject();
+            requestObject.name = imagePath;
+            request.AddJsonBody(requestObject);
+
+            var response = client.Execute<Prediction>(request);
+
+            return response.Data;
 
         }
     }
