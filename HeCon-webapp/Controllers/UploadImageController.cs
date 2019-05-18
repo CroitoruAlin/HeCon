@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace HeCon_webapp.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class UploadImageController : Controller
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
@@ -15,14 +16,14 @@ namespace HeCon_webapp.Controllers
 
         // GET: Image
         [HttpGet]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult New()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ActionResult New(UploadImage imageModel)
         {
 

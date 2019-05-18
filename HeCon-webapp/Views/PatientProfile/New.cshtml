@@ -1,0 +1,47 @@
+﻿@model HeCon_webapp.Models.PatientProfile
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Completeaza pagina de profil</h2>
+
+<form method="post" action="/PatientProfile/New">
+    @Html.HiddenFor(m => m.UserId)
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.Label("PatientName", "Numele intreg")
+    <br />
+    @Html.TextBox("PatientName", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.PatientName, "Titlul este obligatoriu", new { @class = "text-danger " })
+
+    <br /><br />
+    @Html.Label("Age", "Varsta")
+    <br />
+    @Html.TextArea("Age", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Age, "Continutul este obligatoriu", new { @class = "text-danger " })
+    <br>
+
+    <br />
+    @Html.Label("HealthIssues", "Probleme medicale")
+    <br />
+    @Html.TextArea("HealthIssues", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.HealthIssues, "Continutul este obligatoriu", new { @class = "text-danger " })
+    <br>
+
+    <br />
+    @Html.Label("SurgicalProcedures", "Operatii")
+    <br />
+    @Html.TextArea("SurgicalProcedures", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.SurgicalProcedures, "Continutul este obligatoriu", new { @class = "text-danger " })
+    <br>
+
+    <br />
+    @Html.Label("FamilyDoctor", "Doctor de familie")
+    <br />
+    @Html.TextArea("FamilyDoctor", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.FamilyDoctor, "Continutul este obligatoriu", new { @class = "text-danger " })
+    <br>
+
+    <button class="btn btn-sm btn-success" type="submit">Salveaza profilul</button>
+</form>
