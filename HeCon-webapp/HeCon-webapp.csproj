@@ -211,12 +211,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-<<<<<<< HEAD
     <Compile Include="Models\PatientProfile.cs" />
-=======
     <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\RequestObject.cs" />
->>>>>>> 12c70e9a45f5954fcd78bebb01ccf4700bf367b3
     <Compile Include="Models\UploadImage.cs" />
     <Compile Include="Models\PythonCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
