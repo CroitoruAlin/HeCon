@@ -39,5 +39,25 @@ namespace HeCon_webapp.Controllers
 
             return View();
         }
+
+        [Authorize(Roles = "Administrator")]
+        public ActionResult ShowUsers()
+        {
+
+            return RedirectToAction("Index", "Users");
+        }
+
+        [Authorize(Roles = "User,Doctor,Administrator")]
+        public ActionResult ShowXRays()
+        {
+            return RedirectToAction("Show", "XRay");
+        }
+
+
+        [Authorize(Roles = "User,Doctor,Administrator")]
+        public ActionResult ShowMyProfile()
+        {
+            return RedirectToAction("Show", "PatientProfile");
+        }
     }
 }

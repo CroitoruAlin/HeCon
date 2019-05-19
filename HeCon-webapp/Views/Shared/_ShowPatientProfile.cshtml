@@ -1,8 +1,8 @@
 ﻿
 <div class="panel panel-default">
-    <div class="panel-heading">@Model.PatientName</div>
+    <div class="panel-heading">@(Model.PatientName == null ? "" : Model.PatientName) </div>
     <div class="panel-body">
-        Varsta: <strong>@Model.Age</strong>
+        Varsta: <strong>@(Model.Age == null ? "" : Model.Age) </strong>
 
     </div>
 </div>

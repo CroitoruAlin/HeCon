@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace HeCon_webapp.Controllers
 {
-    //[Authorize(Roles = "User")] 
+    [Authorize(Roles = "User,Doctor,Administrator")] 
     public class PatientProfileController : Controller
     {
 
@@ -41,7 +41,11 @@ namespace HeCon_webapp.Controllers
         public ActionResult Show()
         {
             PatientProfile profile = db.PatientsProfiles.Find(User.Identity.GetUserId());
-            ViewBag.profile = profile;
+
+            if (profile == null)
+            {
+                return RedirectToAction("New", "PatientProfile");
+            }
 
             // ViewBag.esteAdmin = User.IsInRole("Administrator");
             // ViewBag.utilizatorCurent = User.Identity.GetUserId();

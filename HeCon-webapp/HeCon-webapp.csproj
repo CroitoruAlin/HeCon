@@ -204,7 +204,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PatientProfileController.cs" />
-    <Compile Include="Controllers\UploadImageController.cs" />
+    <Compile Include="Controllers\XRayController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,7 +215,7 @@
     <Compile Include="Models\PatientProfile.cs" />
     <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\RequestObject.cs" />
-    <Compile Include="Models\UploadImage.cs" />
+    <Compile Include="Models\XRay.cs" />
     <Compile Include="Models\PythonCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -275,10 +276,14 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UploadImage\New.cshtml" />
+    <Content Include="Views\XRay\New.cshtml" />
     <Content Include="Views\PatientProfile\New.cshtml" />
     <Content Include="Views\PatientProfile\Show.cshtml" />
     <Content Include="Views\Shared\_ShowPatientProfile.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\XRay\Show.cshtml" />
+    <Content Include="Views\Shared\XRay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@ namespace HeCon_webapp.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        //public IEnumerable<SelectListItem> AllRoles { get; internal set; } //pt categorii
+        public IEnumerable<SelectListItem> AllRoles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -29,7 +29,7 @@ namespace HeCon_webapp.Models
         {
         }
 
-        public DbSet <UploadImage> UploadImages { get; set; }
+        public DbSet <XRay> XRays { get; set; }
         public DbSet<PatientProfile> PatientsProfiles { get; set; }
 
         public static ApplicationDbContext Create()
