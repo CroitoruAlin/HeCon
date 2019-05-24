@@ -294,6 +294,8 @@
     <Content Include="Views\DoctorProfile\New.cshtml" />
     <Content Include="Views\DoctorProfile\Show.cshtml" />
     <Content Include="Views\Shared\_ShowDoctorProfile.cshtml" />
+    <Content Include="Views\DoctorProfile\Edit.cshtml" />
+    <Content Include="Views\PatientProfile\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

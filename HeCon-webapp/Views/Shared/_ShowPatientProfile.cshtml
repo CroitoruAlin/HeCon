@@ -3,7 +3,15 @@
     <div class="panel-heading">@(Model.PatientName == null ? "" : Model.PatientName) </div>
     <div class="panel-body">
         Varsta: <strong>@(Model.Age == null ? "" : Model.Age) </strong>
-
+        <br>
+        <br>
+        Probleme medicale:  <strong>@(Model.HealthIssues == null ? "" : Model.HealthIssues) </strong>
+        <br>
+        <br>
+        Operatii:  <strong>@(Model.SurgicalProcedures == null ? "" : Model.SurgicalProcedures) </strong>
+        <br>
+        <br>
+        Doctor de familie:  <strong>@(Model.FamilyDoctor == null ? "" : Model.FamilyDoctor) </strong>
     </div>
 </div>
 <br />

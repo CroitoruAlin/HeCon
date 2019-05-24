@@ -1,0 +1,28 @@
+﻿@model HeCon_webapp.Models.DoctorProfile
+
+@{
+    ViewBag.Titlu = "Editare Profil";
+}
+
+<h2>@ViewBag.Titlu</h2>
+<form method="post" action="/DoctorProfile/Edit">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("DoctorName", "Nume Doctor")
+    <br />
+    @Html.EditorFor(m => m.DoctorName)
+    @Html.ValidationMessageFor(model => model.DoctorName, "Numele este obligatoriu", new { @class = "text-danger " })
+
+    <br>
+    <br>
+
+    @Html.Label("Description", "Descriere")
+    <br />
+    @Html.EditorFor(m => m.Description)
+    @Html.ValidationMessageFor(model => model.Description, "Descrierea este obligatorie", new { @class = "text-danger " })
+
+    <br>
+    <br>
+    <button class="btn btn-sm btn-success" type="submit">Modifica profil</button>
+</form>

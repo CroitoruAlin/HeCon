@@ -6,3 +6,15 @@
 <h2>Pagina de profil</h2>
 
 @Html.Partial("_ShowPatientProfile")
+
+<a class="btn btn-sm btn-info" href="/PatientProfile/Edit">
+    Modifica profil
+</a>
+
+<br />
+<br />
+
+<form method="post" action="/PatientProfile/Delete">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-sm btn-danger" type="submit">Sterge profil</button>
+</form>
