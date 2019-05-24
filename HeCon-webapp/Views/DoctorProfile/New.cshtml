@@ -1,0 +1,23 @@
+﻿@model HeCon_webapp.Models.DoctorProfile
+
+@{
+    
+}
+
+
+<form method="post" action="/DoctorProfile/New">
+    @Html.HiddenFor(m => m.UserId)
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.Label("DoctorName", "Numele intreg")
+    <br />
+    @Html.TextBox("DoctorName", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.DoctorName, "Titlul este obligatoriu", new { @class = "text-danger " })
+    <br /><br />
+    @Html.Label("Description", "Descriere")
+    <br />
+    @Html.TextArea("Description", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description, "Continutul este obligatoriu", new { @class = "text-danger " })
+    <br>
+    <button class="btn btn-sm btn-success" type="submit">Salveaza profilul</button>
+</form>

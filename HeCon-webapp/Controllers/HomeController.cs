@@ -14,16 +14,6 @@ namespace HeCon_webapp.Controllers
 
         public ActionResult Index()
         {
-            PatientProfile profile = db.PatientsProfiles.Find(User.Identity.GetUserId());
-
-            if (profile != null) /// are fisa completata
-            {
-                ViewBag.AccessPage = "Show";
-            }
-            else
-            {
-                ViewBag.AccessPage = "New";
-            }
             return View();
         }
 
@@ -57,7 +47,33 @@ namespace HeCon_webapp.Controllers
         [Authorize(Roles = "User,Doctor,Administrator")]
         public ActionResult ShowMyProfile()
         {
-            return RedirectToAction("Show", "PatientProfile");
+            
+            ViewBag.IsDoctor = User.IsInRole("Doctor");
+            ViewBag.IsPatient = User.IsInRole("User");
+
+           
+            
+            if (ViewBag.IsDoctor == true)
+            {
+                DoctorProfile profile = db.DoctorsProfiles.Find(User.Identity.GetUserId());
+                if (profile != null)  /// are fisa completata
+                    return RedirectToAction("Show", "DoctorProfile");
+                else
+                    return RedirectToAction("New", "DoctorProfile");
+            }
+            else
+            if (ViewBag.IsPatient == true)
+            {
+                PatientProfile profile = db.PatientsProfiles.Find(User.Identity.GetUserId());
+                if (profile != null)
+                    return RedirectToAction("Show", "PatientProfile");
+                else
+                    return RedirectToAction("New", "PatientProfile");
+            }
+
+            else return RedirectToAction("Index", "Home");
+
         }
+
     }
 }
