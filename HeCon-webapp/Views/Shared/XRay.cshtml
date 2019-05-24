@@ -7,14 +7,14 @@
     <div class="panel-body">
 
         @if (Model.ImagePath != null)
-    {
+        {
         <fieldset>
             <div style="padding:10px">
                 <img class="img-responsive" src="@Url.Content(Model.ImagePath)" alt="Image" style="width:200px" />
             </div>
 
         </fieldset>
-}
+        }
 
         <br />
         <span class="label label-success">The probability of having pneumonia is: @Model.Prediction.positive_probability</span>
@@ -43,7 +43,6 @@
     {
         if (Model.PermissionToDoctor == 0)
         {
-            @Model.ImageId
 
             <form method="post" action="/XRay/ModifyPermission/@Model.ImageId">
                 <button class="btn btn-sm btn-success" type="submit">
