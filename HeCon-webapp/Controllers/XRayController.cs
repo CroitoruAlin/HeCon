@@ -51,6 +51,12 @@ namespace HeCon_webapp.Controllers
             var xrays = db.XRays.Where(u => u.UserId == userId).Select(gr => gr);
             var UserName = db.Users.Where(u => u.Id == userId).Select(gr => gr.UserName).FirstOrDefault();
 
+            //luam comentarile ptr stirea resp
+
+            var comments1 = from n in db.Comment select n;
+            List<Comment> comments = comments1.ToList();
+            ViewBag.Comments = comments;
+
             ViewBag.XraysList = xrays;
             ViewBag.UserIdCurrent = userId;
             ViewBag.UserName = UserName;
@@ -61,10 +67,14 @@ namespace HeCon_webapp.Controllers
         public ActionResult ShowPatientXray(string id)
         {
             var xrays = db.XRays.Where(u => u.UserId == id && u.PermissionToDoctor == 1).Select(gr => gr);
-            var UserName = db.Users.Where(u => u.Id == id).Select(gr => gr.UserName);
+            var UserName = db.Users.Where(u => u.Id == id).Select(gr => gr.UserName).FirstOrDefault();
             ViewBag.XraysList = xrays;
             ViewBag.UserIdCurrent = User.Identity.GetUserId();
             ViewBag.UserName = UserName;
+
+            var comments1 = from n in db.Comment select n;
+            List<Comment> comments = comments1.ToList();
+            ViewBag.Comments = comments;
             return View("../XRay/Show");
         }
 

@@ -201,6 +201,7 @@
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DoctorProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,6 +213,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DoctorProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -294,8 +296,14 @@
     <Content Include="Views\DoctorProfile\New.cshtml" />
     <Content Include="Views\DoctorProfile\Show.cshtml" />
     <Content Include="Views\Shared\_ShowDoctorProfile.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\DoctorProfile\Edit.cshtml" />
     <Content Include="Views\PatientProfile\Edit.cshtml" />
+=======
+    <Content Include="Views\Comment\AddComment.cshtml" />
+    <Content Include="Views\Comment\Edit.cshtml" />
+    <Content Include="Views\Shared\CommentInfo.cshtml" />
+>>>>>>> 6690f79ce6f1846df303b0fd035cd8fd1beb8e8c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

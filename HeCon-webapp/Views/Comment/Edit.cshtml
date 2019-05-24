@@ -1,0 +1,18 @@
+﻿@model HeCon_webapp.Models.Comment
+@{
+    ViewBag.Title = "Edit comment";
+}
+
+<h2>@ViewBag.Title</h2>
+<form method="post" action="/Comment/Edit/@Model.CommentId">
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    <br />
+    <div class="form-group">
+        @Html.TextAreaFor(c => c.Text, new { @class = "input" })
+    </div>
+    <br />
+    @Html.ValidationMessageFor(model => model.Text, "Comment is required!", new { @class = "text-danger " })
+    <br />
+    <button class="btn btn-sm btn-success" type="submit">Modify this comment</button>
+</form>
+

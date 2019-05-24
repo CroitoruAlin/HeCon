@@ -1,0 +1,16 @@
+﻿@model HeCon_webapp.Models.Comment
+
+<p><strong>@Model.Text</strong></p>
+<span class="label label-success">@Model.AddedDate</span>
+<i class="glyphicon glyphicon-user"></i> <i>Comment written by:</i> <strong>
+    @Model.User.UserName
+</strong>
+
+<a class="btn btn-sm btn-info" href="/Comment/Edit/@Model.CommentId" style="float:right">Modify comment</a>
+<br /> <br />
+<form method="post" action="/Comment/Delete/@Model.CommentId">
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-sm btn-danger" type="submit" style="float:right">Delete comment</button>
+</form>
+<br />
+<hr />
