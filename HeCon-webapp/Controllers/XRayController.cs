@@ -9,7 +9,6 @@ using System.Web.Mvc;
 
 namespace HeCon_webapp.Controllers
 {
-    [Authorize(Roles = "Administrator")]
     public class XRayController : Controller
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
@@ -45,13 +44,36 @@ namespace HeCon_webapp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "User,Doctor,Administrator")]
         public ActionResult Show()
         {
             var userId = User.Identity.GetUserId();
             var xrays = db.XRays.Where(u => u.UserId == userId).Select(gr => gr);
+            var UserName = db.Users.Where(u => u.Id == userId).Select(gr => gr.UserName).FirstOrDefault();
 
             ViewBag.XraysList = xrays;
+            ViewBag.UserIdCurrent = userId;
+            ViewBag.UserName = UserName;
             return View();
+        }
+
+        [Authorize(Roles = "Doctor,Administrator")]
+        public ActionResult ShowPatientXray(string id)
+        {
+            var xrays = db.XRays.Where(u => u.UserId == id && u.PermissionToDoctor == 1).Select(gr => gr);
+            var UserName = db.Users.Where(u => u.Id == id).Select(gr => gr.UserName);
+            ViewBag.XraysList = xrays;
+            ViewBag.UserIdCurrent = User.Identity.GetUserId();
+            ViewBag.UserName = UserName;
+            return View("../XRay/Show");
+        }
+
+        [Authorize(Roles = "User,Doctor,Administrator")]
+        public ActionResult ModifyPermission(int id) {
+            XRay xray = db.XRays.Find(id);
+            xray.PermissionToDoctor = 1-xray.PermissionToDoctor;
+            db.SaveChanges();
+            return RedirectToAction("Show","XRay");
         }
     }
 }
