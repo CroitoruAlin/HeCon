@@ -296,14 +296,11 @@
     <Content Include="Views\DoctorProfile\New.cshtml" />
     <Content Include="Views\DoctorProfile\Show.cshtml" />
     <Content Include="Views\Shared\_ShowDoctorProfile.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\DoctorProfile\Edit.cshtml" />
     <Content Include="Views\PatientProfile\Edit.cshtml" />
-=======
     <Content Include="Views\Comment\AddComment.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Shared\CommentInfo.cshtml" />
->>>>>>> 6690f79ce6f1846df303b0fd035cd8fd1beb8e8c
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
