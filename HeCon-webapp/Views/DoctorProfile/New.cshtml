@@ -1,9 +1,10 @@
 ﻿@model HeCon_webapp.Models.DoctorProfile
 
 @{
-    
+    ViewBag.Title = "New";
 }
 
+<h2>Completeaza pagina de profil</h2>
 
 <form method="post" action="/DoctorProfile/New">
     @Html.HiddenFor(m => m.UserId)
