@@ -13,6 +13,8 @@ namespace HeCon_webapp.Controllers
     {
         private ApplicationDbContext db = ApplicationDbContext.Create();
         // GET: Users
+
+        [Authorize(Roles = "Administrator")]
         public ActionResult Index()
         {
             var users = from user in db.Users
@@ -22,8 +24,18 @@ namespace HeCon_webapp.Controllers
             return View();
         }
 
-        
+        [Authorize(Roles = "Doctor,Administrator")]
+        public ActionResult ShowPatients()
+        {
 
+            var users = from user in db.Users
+                        orderby user.UserName
+                        select user;
+            ViewBag.UsersList = users;
+            return View();
+        }
+
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(string id)
         {
             ApplicationUser user = db.Users.Find(id);

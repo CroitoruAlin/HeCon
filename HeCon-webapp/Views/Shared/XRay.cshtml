@@ -1,27 +1,50 @@
 ﻿@model HeCon_webapp.Models.XRay
 
-    <div class="panel panel-default">
+<div class="panel panel-default">
 
-        <strong style="font-size:200%">@Model.Title</strong>
+    <strong style="font-size:200%">@Model.Title</strong>
 
-        <div class="panel-body">
+    <div class="panel-body">
 
-            @if (Model.ImagePath != null)
-            {
+        @if (Model.ImagePath != null)
+        {
             <fieldset>
                 <div style="padding:10px">
                     <img class="img-responsive" src="@Url.Content(Model.ImagePath)" alt="Image" style="width:200px" />
                 </div>
 
             </fieldset>
-            }
+        }
 
-            <br />
-            <span class="label label-success">The probability of having pneumonia is: @Model.Prediction.positive_probability</span>
-            <br />
-
-        </div>
+        <br />
+        <span class="label label-success">The probability of having pneumonia is: @Model.Prediction.positive_probability</span>
+        <br />
 
     </div>
+
+    <!-- UserIdCurrent = cel care vede acum /  -->
+    @if (Model.UserId == ViewBag.UserIdCurrent)
+    {
+        if (Model.PermissionToDoctor == 0)
+        {
+            @Model.ImageId
+
+            <form method="post" action="/XRay/ModifyPermission/@Model.ImageId">
+                <button class="btn btn-sm btn-success" type="submit">
+                    Cere sfatul medicului
+                </button>
+            </form>
+        }
+        else
+        {
+            <form method="post" action="/XRay/ModifyPermission/@Model.ImageId">
+                <button class="btn btn-sm btn-info" type="submit">
+                    Nu mai permite accesul medicului
+                </button>
+            </form>
+        }
+    }
+
     <br />
 
+</div>
