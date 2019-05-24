@@ -1,0 +1,21 @@
+﻿@model HeCon_webapp.Models.Comment
+
+<form method="post" action="/Comment/New">
+    @Html.HiddenFor(c => c.ImageId)
+    <br />
+    <br />
+    <div class="panel panel-default">
+        <strong style="font-size:200%">Comment on this XRay</strong>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.TextAreaFor(c => c.Text, new { @class = "input" })
+                </div>
+                <button class="primary-button" type="submit">Add comment</button>
+            </div>
+        </div>
+    </div>
+
+    @Html.Hidden("AddedDate", DateTime.Now, new { @class = "form-control" })
+    @Html.Hidden("LastEdit", DateTime.Now, new { @class = "form-control" })
+</form>

@@ -32,6 +32,7 @@ namespace HeCon_webapp.Models
         public DbSet <XRay> XRays { get; set; }
         public DbSet<PatientProfile> PatientsProfiles { get; set; }
         public DbSet<DoctorProfile> DoctorsProfiles { get; set; }
+        public DbSet<Comment> Comment { get; set; }
 
         public static ApplicationDbContext Create()
         {
