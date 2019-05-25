@@ -216,10 +216,12 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DoctorProfile.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IPathProvider.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PatientProfile.cs" />
     <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\RequestObject.cs" />
+    <Compile Include="Models\ServerPathProvider.cs" />
     <Compile Include="Models\XRay.cs" />
     <Compile Include="Models\PythonCaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

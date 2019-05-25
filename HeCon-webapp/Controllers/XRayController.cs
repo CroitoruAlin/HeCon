@@ -11,8 +11,23 @@ namespace HeCon_webapp.Controllers
 {
     public class XRayController : Controller
     {
-        private ApplicationDbContext db = ApplicationDbContext.Create();
-        private PythonCaller pythonCaller = PythonCaller.getPythonCaller();
+        private ApplicationDbContext db;
+        private PythonCaller pythonCaller;
+        private IPathProvider pathProvider;
+        public XRayController()
+        {
+            db = ApplicationDbContext.Create();
+            pythonCaller = PythonCaller.getPythonCaller();
+            pathProvider = new ServerPathProvider();
+        }
+
+        public XRayController(ApplicationDbContext applicationDb,IPathProvider ipathProvider)
+        {
+            db = applicationDb;
+            pythonCaller = PythonCaller.getPythonCaller();
+            pathProvider = ipathProvider;
+        }
+
 
         // GET: Image
         [HttpGet]
@@ -31,7 +46,7 @@ namespace HeCon_webapp.Controllers
             string extension = Path.GetExtension(imageModel.ImageFile.FileName);
             fileName = fileName + DateTime.Now.ToString("yy_mm_ss_fff") + extension;
             imageModel.ImagePath = "~/UploadedImages/" + fileName;
-            fileName = Path.Combine(Server.MapPath("~/UploadedImages/"), fileName);
+            fileName = Path.Combine(pathProvider.MapPath("~/UploadedImages/"), fileName);
             imageModel.UserId = User.Identity.GetUserId();
             imageModel.ImageFile.SaveAs(fileName);      
             Prediction result = pythonCaller.callPython(fileName);

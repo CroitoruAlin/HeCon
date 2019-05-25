@@ -11,7 +11,16 @@ namespace HeCon_webapp.Controllers
     [Authorize(Roles = "Doctor,Administrator")]
     public class DoctorProfileController : Controller
     {
-        private ApplicationDbContext db = ApplicationDbContext.Create();
+        private ApplicationDbContext db;
+
+        public DoctorProfileController()
+        {
+            db = ApplicationDbContext.Create();
+        }
+        public DoctorProfileController(ApplicationDbContext dbContext)
+        {
+            db = dbContext;
+        }
 
         // GET: DoctorProfile
         public ActionResult Index()

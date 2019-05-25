@@ -12,7 +12,16 @@ namespace HeCon_webapp.Controllers
     public class PatientProfileController : Controller
     {
 
-        private ApplicationDbContext db = ApplicationDbContext.Create();
+        private ApplicationDbContext db;
+        public PatientProfileController()
+        {
+            db = ApplicationDbContext.Create();
+        }
+         public PatientProfileController(ApplicationDbContext applicationDb)
+        {
+            db = applicationDb;
+        }
+
 
         public ActionResult New()
         {

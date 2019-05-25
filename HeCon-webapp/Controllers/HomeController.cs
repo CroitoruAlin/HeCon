@@ -10,8 +10,14 @@ namespace HeCon_webapp.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext db = ApplicationDbContext.Create();
-
+        private ApplicationDbContext db;
+        public HomeController() {
+           db = ApplicationDbContext.Create();
+        }
+        public HomeController(ApplicationDbContext applicationDb)
+        {
+            db = applicationDb;
+        }
         public ActionResult Index()
         {
             return View();
