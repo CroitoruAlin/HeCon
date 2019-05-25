@@ -4,7 +4,7 @@
     ViewBag.Title = "New";
 }
 <div class="jumbotron" background="~/Content/Images/sahb.png">
-    <h2>New</h2>
+    <h2>Choose your chest xray and receive an immediate response</h2>
 
 
     @using (Html.BeginForm("New", "XRay", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -12,7 +12,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <h4>UploadImage</h4>
+            <h4>Pneumonia diagnose</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Get diagnostic" class="btn btn-default" />
                 </div>
             </div>
         </div>
