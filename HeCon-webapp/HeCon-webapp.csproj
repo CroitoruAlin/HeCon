@@ -296,6 +296,8 @@
     <Content Include="Views\DoctorProfile\New.cshtml" />
     <Content Include="Views\DoctorProfile\Show.cshtml" />
     <Content Include="Views\Shared\_ShowDoctorProfile.cshtml" />
+    <Content Include="Views\DoctorProfile\Edit.cshtml" />
+    <Content Include="Views\PatientProfile\Edit.cshtml" />
     <Content Include="Views\Comment\AddComment.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Shared\CommentInfo.cshtml" />
