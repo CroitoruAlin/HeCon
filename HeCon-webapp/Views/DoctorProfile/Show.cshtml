@@ -3,12 +3,14 @@
     ViewBag.Title = "Show";
 }
 
-<h2>Pagina de profil</h2>
+<h2>Profile Page</h2>
 
 @Html.Partial("_ShowDoctorProfile")
 
+<br>
+<br>
 <a class="btn btn-sm btn-info" href="/DoctorProfile/Edit">
-    Modifica profil
+    Modify profile
 </a>
 
 <br />
@@ -16,5 +18,5 @@
 
 <form method="post" action="/DoctorProfile/Delete">
     @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button class="btn btn-sm btn-danger" type="submit">Sterge profil</button>
+    <button class="btn btn-sm btn-danger" type="submit">Delete profile</button>
 </form>

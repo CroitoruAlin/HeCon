@@ -94,7 +94,7 @@ namespace HeCon_webapp.Controllers
                         a.FamilyDoctor = requestPatientProfile.FamilyDoctor;
 
                         db.SaveChanges();
-                        TempData["message"] = "Articolul a fost modificat!";
+                        TempData["message"] = "Profilul a fost modificat!";
                     }
                     return RedirectToAction("Show", "PatientProfile");
 

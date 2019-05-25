@@ -91,7 +91,7 @@ namespace HeCon_webapp.Controllers
                         a.DoctorName = requestDoctorProfile.DoctorName;
                         a.Description = requestDoctorProfile.Description;
                         db.SaveChanges();
-                        TempData["message"] = "Articolul a fost modificat!";
+                        TempData["message"] = "Profilul a fost modificat!";
                     }
                     return RedirectToAction("Show","DoctorProfile");
                   

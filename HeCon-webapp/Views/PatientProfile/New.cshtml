@@ -6,42 +6,61 @@
 
 <h2>Complete the page profile</h2>
 
-<form method="post" action="/PatientProfile/New">
-    @Html.HiddenFor(m => m.UserId)
+<br>
+<br>
 
-    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-    @Html.Label("PatientName", "Full Name")
-    <br />
-    @Html.TextBox("PatientName", null, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.PatientName, "Titlul este obligatoriu", new { @class = "text-danger " })
+<style>   
+ .s {
+    width:85%;
+    height: 230px;
 
-    <br /><br />
-    @Html.Label("Age", "Age")
-    <br />
-    @Html.TextArea("Age", null, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.Age, "Continutul este obligatoriu", new { @class = "text-danger " })
-    <br>
+    }
+</style>
 
-    <br />
-    @Html.Label("HealthIssues", "Medical Issues")
-    <br />
-    @Html.TextArea("HealthIssues", null, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.HealthIssues, "Continutul este obligatoriu", new { @class = "text-danger " })
-    <br>
+<div class="row">
+    <div class="col-md-3">
+        <img class="s" src="~/Images/profile.jpg" />
+    </div>
+    <div class="col-md-8">
+        <form method="post" action="/PatientProfile/New">
+            @Html.HiddenFor(m => m.UserId)
 
-    <br />
-    @Html.Label("SurgicalProcedures", "Surgical Interventions")
-    <br />
-    @Html.TextArea("SurgicalProcedures", null, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.SurgicalProcedures, "Continutul este obligatoriu", new { @class = "text-danger " })
-    <br>
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            @Html.Label("PatientName", "Full Name")
+            <br />
+            @Html.TextBox("PatientName", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PatientName, "Patient Name is obligatory", new { @class = "text-danger " })
 
-    <br />
-    @Html.Label("FamilyDoctor", "Family Doctor")
-    <br />
-    @Html.TextArea("FamilyDoctor", null, new { @class = "form-control" })
-    @Html.ValidationMessageFor(model => model.FamilyDoctor, "Continutul este obligatoriu", new { @class = "text-danger " })
-    <br>
+            <br /><br />
+            @Html.Label("Age", "Age")
+            <br />
+            @Html.TextArea("Age", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Age, "Age is obligatory", new { @class = "text-danger " })
+            <br>
 
-    <button class="btn btn-sm btn-success" type="submit">Save profile</button>
-</form>
+            <br />
+            @Html.Label("HealthIssues", "Medical Issues")
+            <br />
+            @Html.TextArea("HealthIssues", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.HealthIssues, "Health Issues are obligory", new { @class = "text-danger " })
+            <br>
+
+            <br />
+            @Html.Label("SurgicalProcedures", "Surgical Interventions")
+            <br />
+            @Html.TextArea("SurgicalProcedures", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SurgicalProcedures, "Surgical Procedures are obligaory", new { @class = "text-danger " })
+            <br>
+
+            <br />
+            @Html.Label("FamilyDoctor", "Family Doctor")
+            <br />
+            @Html.TextArea("FamilyDoctor", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.FamilyDoctor, "Family Doctor is obligatory", new { @class = "text-danger " })
+            <br>
+
+            <button class="btn btn-sm btn-success" type="submit">Save profile</button>
+        </form>
+    </div>
+</div>
+
