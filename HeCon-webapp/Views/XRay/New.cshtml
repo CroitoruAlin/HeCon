@@ -39,7 +39,13 @@
     <div class="col-md-10">
        @if(ViewBag.result != null)
        {
-           <p>The probability of having pneumonia is: @ViewBag.result.positive_probability</p>
+        <span class="label label-success">
+            The probability of having pneumonia is: <br /><br />
+        </span>
+        <span class="btn btn-warning">
+            <font size="12">@ViewBag.result.positive_probability</font>
+        </span>
+
        }
     </div>
 }

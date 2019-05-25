@@ -7,30 +7,37 @@
     <div class="panel-body">
 
         @if (Model.ImagePath != null)
-        {
+    {
         <fieldset>
             <div style="padding:10px">
                 <img class="img-responsive" src="@Url.Content(Model.ImagePath)" alt="Image" style="width:200px" />
             </div>
 
         </fieldset>
-        }
+}
 
         <br />
-        <span class="label label-success">The probability of having pneumonia is: @Model.Prediction.positive_probability</span>
+
+        <span class="label label-success">
+            The probability of having pneumonia is: <br /><br />
+        </span>
+        <span class="btn btn-warning">
+            <font size="12">@Model.Prediction.positive_probability</font>
+        </span>
+
         <br />
 
         <strong style="font-size:150%">Comments</strong>
         <hr />
 
         @foreach (var comment in (List<HeCon_webapp.Models.Comment>)ViewBag.Comments)
+    {
+        if (comment.ImageId == Model.ImageId)
         {
-             if (comment.ImageId == Model.ImageId)
-             {
-                @Html.Partial("CommentInfo", comment);
-                <br />
-             }
-        }
+            @Html.Partial("CommentInfo", comment);
+        <br />
+}
+}
 
         <br />
         <a class="btn btn-sm btn-success" href="/Comment/New/@Model.ImageId" style="float:right">Comment on this XRay</a>
